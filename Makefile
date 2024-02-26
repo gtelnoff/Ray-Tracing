@@ -1,8 +1,8 @@
-SRCS	= srcs/main.c
+SRCS	= srcs/main.c srcs/scene/scene_parser/scene_parser.c srcs/utils/get_next_word.c
 
 OBJS	= $(SRCS:.c=.o)
 NAME 	= rayTracing
-CC	= clang -g -Wall -Werror -Wextra
+CC	= clang -g #-Wall -Werror -Wextra
 
 all : $(NAME)
 

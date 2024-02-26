@@ -1,5 +1,5 @@
-#ifndef AMBIENT_LIGHT_H
-# define AMBIENT_LIGHT_H
+#ifndef     AMBIENT_LIGHT_H
+# define    AMBIENT_LIGHT_H
 
 // Exemple: A 0.2 255,255,255
 typedef struct s_ambient_light
