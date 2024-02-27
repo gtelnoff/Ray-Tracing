@@ -1,4 +1,4 @@
-SRCS	= srcs/main.c srcs/scene/scene_parser/scene_parser.c srcs/utils/get_next_word.c
+SRCS	= srcs/main.c srcs/utils/get_next_word.c srcs/utils/print_2d_array.c srcs/utils/free_2d_array.c srcs/utils/ft_split.c srcs/utils/gnl/get_next_line_utils.c srcs/utils/gnl/get_next_line.c srcs/utils/ft_substr.c srcs/scene/scene_parser_functions/get_file.c srcs/scene/scene_parser.c \
 
 OBJS	= $(SRCS:.c=.o)
 NAME 	= rayTracing

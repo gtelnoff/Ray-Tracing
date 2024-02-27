@@ -1,6 +1,4 @@
 #include "utils.h"
-#include <stdlib.h>
-#include <string.h>
 
 void  skip_separators(char **str, char separator);
 int   get_next_word_size(char *str, char separator);
