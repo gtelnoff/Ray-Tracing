@@ -8,7 +8,7 @@ typedef struct s_ambient_light
 	float   ratio;
 
     // R,G,B ambient light color in range [0-255].
-    int*    color;
+    int     *color;
 }	t_ambient_light;
 
 #endif

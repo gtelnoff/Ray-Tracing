@@ -11,5 +11,7 @@ char	**ft_split(char *s, char c);
 void	free_2d_array(char **array);
 void	print_2d_array(char **array);
 char	*ft_substr(char *s, int start, int len);
+char	*ft_strtrim_free(char *s1, char *set);
+int     is_number(char *str);
 
 #endif

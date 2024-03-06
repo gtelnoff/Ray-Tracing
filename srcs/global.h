@@ -7,6 +7,7 @@
 #include <string.h>
 #include  <errno.h>
 #include <unistd.h>
+#include "utils/utils.h"
 
 # define SUCCESS 0
 # define FAILURE 1

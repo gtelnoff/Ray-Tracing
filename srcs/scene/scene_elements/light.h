@@ -12,6 +12,8 @@ typedef struct s_light
 
     // R,G,B light color in range [0-255].
     int*    color;
+
+    struct t_light *next;
 }	t_light;
 
 #endif

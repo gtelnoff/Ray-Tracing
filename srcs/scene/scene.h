@@ -9,11 +9,18 @@
 #include "scene_elements/sphere.h"
 #include "../global.h"
 
-# define BAD_FILE_PATH 0
+# define FILE_ERROR 1
+# define OPEN_FAILED -1
 # define MIN_FILE_PATH_SIZE 4
+# define BAD_FILE
+
+# define ERROR_HEADER "[ERROR] "
 
 # define ERROR_FILE_PATH_SIZE "[ERROR] The file path is too short.\n"
-
+# define ERROR_FILE_PATH_EXTENSION "[ERROR] Bad file path. Use test.rt for exemple.\n"
+# define ERROR_OPEN_FILE "[ERROR] The program not arrive to open this file. Please check the file name or the permission of it.\n"
+# define ERROR_EMPTY_FILE " is an empty file !\n"
+# define ERROR_OPEN_FAILED "The program failed to open the file: "
 // Scene struct contain all resources of the scene_file.rt
 typedef struct s_scene
 {
@@ -25,7 +32,7 @@ typedef struct s_scene
     t_plane         *planes;
 }   t_scene;
 
-t_scene  *scene_parser(char  *scene_path);
-char    **get_file(char *path_file);
+t_scene  *scene_parser(char  *file_name);
+int       add_cylinder(t_scene *scene_config, char *line);
 
 #endif

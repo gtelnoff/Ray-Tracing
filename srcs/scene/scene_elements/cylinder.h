@@ -19,6 +19,8 @@ typedef struct s_cylinder
 
     // R,G,B cylinder colors in range [0,255].
     int*    color;
+
+    struct s_cylinder* next;
 }	t_cylinder;
 
 #endif

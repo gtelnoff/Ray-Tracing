@@ -22,7 +22,7 @@ char  *get_next_word(char **str, char separator)
 
   if (str == NULL || (*str) == NULL)
     return (NULL);
-  skip_separators(&(*str), ' ');
+  skip_separators(&(*str), separator);
   if ((**str) == '\0')
     return (NULL);
   next_word_size = get_next_word_size(*str, separator);
@@ -31,6 +31,8 @@ char  *get_next_word(char **str, char separator)
     return (NULL);
   strncpy(next_word, (*str), next_word_size);
   next_word[next_word_size] = '\0';
+  if ((*str)[next_word_size] != '\0')
+    next_word_size++;
   (*str) += next_word_size;
   return (next_word);
 }

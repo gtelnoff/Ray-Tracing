@@ -2,6 +2,8 @@
 #include "scene/scene.h"
 #include "utils/utils.h"
 
+t_scene *scene_parser(char  *file_name);
+
 int main(int argc, char** argv)
 {
     t_scene *scene_config;
@@ -15,5 +17,6 @@ int main(int argc, char** argv)
     if (scene_config == NULL)
         return (FAILURE);
 
+    printf("success\n");
     return (SUCCESS);
 }
