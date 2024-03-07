@@ -1,12 +1,12 @@
 #ifndef     SCENE_H
 # define    SCENE_H
 
-#include "scene_elements/ambient_light.h"
-#include "scene_elements/camera.h"
-#include "scene_elements/cylinder.h"
-#include "scene_elements/light.h"
-#include "scene_elements/plane.h"
-#include "scene_elements/sphere.h"
+#include "elements/ambient_light.h"
+#include "elements/camera.h"
+#include "elements/cylinder.h"
+#include "elements/light.h"
+#include "elements/plane.h"
+#include "elements/sphere.h"
 #include "../global.h"
 
 # define FILE_ERROR 1
@@ -33,6 +33,7 @@ typedef struct s_scene
 }   t_scene;
 
 t_scene  *scene_parser(char  *file_name);
-int       add_cylinder(t_scene *scene_config, char *line);
+int       add_cylinder(t_scene *scene, char *line);
+void    free_scene(t_scene *scene);
 
 #endif

@@ -1,9 +1,8 @@
 #include "../global.h"
-#include "scene.h"
 
 int      check_extension(char  *file_name);
-t_scene *get_scene_config(char *file_path);
-void  print_all(t_scene *scene_config);
+t_scene *get_scene(char *file_path);
+void  print_all(t_scene *scene);
 
 /** 
  * @brief This function is the main scene parser. 
@@ -16,22 +15,23 @@ void  print_all(t_scene *scene_config);
  */
 t_scene *scene_parser(char  *file_name)
 {
-    t_scene *scene_config;
+    t_scene *scene;
     
     if(check_extension(file_name) == FILE_ERROR)
-      return (NULL);
-    scene_config = get_scene_config(file_name);
-    if (scene_config == NULL)
-        return (NULL);
-    print_all(scene_config);
-    return (scene_config);
+      return NULL;
+    scene = get_scene(file_name);
+    if (scene == NULL)
+        return NULL;
+    print_all(scene);
+
+    return scene;
 }
 
-void  print_all(t_scene *scene_config)
+void  print_all(t_scene *scene)
 {
   t_cylinder *first_cylinder;
 
-  first_cylinder = scene_config->cylinders;
+  first_cylinder = scene->cylinders;
   if (first_cylinder == NULL)
     return ;
   

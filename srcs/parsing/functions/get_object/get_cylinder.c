@@ -1,4 +1,4 @@
-#include "../../scene.h"
+#include "../../../global.h"
 
 # define COORDINATES_MALLOC_SIZE 4
 # define COORDINATES_NUMBER 3
@@ -6,24 +6,27 @@
 static t_cylinder  *create_cylinder_struct(char *line);
 float                *get_coordinates(char *str);
 
-int add_cylinder(t_scene *scene_config, char *line)
+int add_cylinder(t_scene *scene, char *line)
 {
   t_cylinder  *new_cylinder;
   t_cylinder  *last_cylinder;
 
   new_cylinder = create_cylinder_struct(line);
   if (new_cylinder == NULL)
-    return (FAILURE);
-  if (scene_config->cylinders == NULL)
+    return FAILURE;
+
+  if (scene->cylinders == NULL)
   {
-    scene_config->cylinders = new_cylinder;
-    return (SUCCESS);
+    scene->cylinders = new_cylinder;
+    return SUCCESS;
   }
-  last_cylinder = scene_config->cylinders;
+
+  last_cylinder = scene->cylinders;
   while (last_cylinder->next != NULL)
     last_cylinder = last_cylinder->next;
   last_cylinder->next = new_cylinder;
-  return (SUCCESS);
+  
+  return SUCCESS;
 }
 
 static t_cylinder  *create_cylinder_struct(char *line)
@@ -33,16 +36,17 @@ static t_cylinder  *create_cylinder_struct(char *line)
 
   cylinder = malloc(sizeof(t_cylinder) * 1);
   if (cylinder == NULL)
-    return (NULL);
+    return NULL;
   coordinates = get_next_word(&line, ' ');
   cylinder->coordinates = get_coordinates(coordinates);
   if (cylinder->coordinates == NULL)
   {
     //free
-    return (NULL);
+    return NULL;
   }
   cylinder->next = NULL;
-  return (cylinder);
+  
+  return cylinder;
 }
 
 // ajouter le check si il le chiffre est plus grand qu'un double
@@ -55,17 +59,18 @@ float *get_coordinates(char *str)
   index = 0;
   coordinates = malloc(sizeof(int) * COORDINATES_MALLOC_SIZE);
   if (coordinates == NULL)
-    return (NULL); 
+    return NULL; 
   while (index < COORDINATES_NUMBER)
   {
     next_coordinate = get_next_word(&str, ',');
     if (next_coordinate == NULL || !is_number(next_coordinate))
     {
       free(coordinates);
-      return (NULL);
+      return NULL;
     }
     coordinates[index] = atof(next_coordinate);
     index++;
   }
-  return (coordinates);
+
+  return coordinates;
 }
