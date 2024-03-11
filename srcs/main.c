@@ -17,9 +17,11 @@ int main(int argc, char** argv)
     if (scene == NULL)
     {
         free_scene(scene);
+        printf("FAILURE !\n");
         return FAILURE;
     }
-
+    free_scene(scene);
+    printf("SUCCESS !\n");
     return SUCCESS;
 }
 

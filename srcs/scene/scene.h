@@ -32,8 +32,8 @@ typedef struct s_scene
     t_plane         *planes;
 }   t_scene;
 
-t_scene  *scene_parser(char  *file_name);
-int       add_cylinder(t_scene *scene, char *line);
-void    free_scene(t_scene *scene);
+t_scene     *scene_parser(char  *file_name);
+int          add_cylinder(t_scene *scene, char **split_line);
+void         free_scene(t_scene *scene);
 
 #endif

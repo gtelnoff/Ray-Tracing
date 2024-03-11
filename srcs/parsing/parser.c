@@ -19,6 +19,8 @@ t_scene *scene_parser(char  *file_name)
     
     if(check_extension(file_name) == FILE_ERROR)
       return NULL;
+    // add le check pour savoir si le fichier est ouvrable ici avec la
+    // logique d'erreur OF COURSE
     scene = get_scene(file_name);
     if (scene == NULL)
         return NULL;
