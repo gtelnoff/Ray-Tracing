@@ -1,5 +1,5 @@
-#ifndef     CYLINDER_H
-# define    CYLINDER_H
+#ifndef     cylinder_H
+# define    cylinder_H
 
 // Exemple: cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255
 typedef struct s_cylinder

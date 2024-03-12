@@ -3,10 +3,10 @@
 
 #include "elements/ambient_light.h"
 #include "elements/camera.h"
-#include "elements/cylinder.h"
+#include "elements/sphere.h"
 #include "elements/light.h"
 #include "elements/plane.h"
-#include "elements/sphere.h"
+#include "elements/cylinder.h"
 #include "../global.h"
 
 # define FILE_ERROR 1
@@ -27,12 +27,12 @@ typedef struct s_scene
     t_ambient_light *ambients_lights;
     t_light         *lights;
     t_sphere        *spheres;
-    t_cylinder      *cylinders;
+    t_cylinder      *cylinder;
     t_plane         *planes;
 }   t_scene;
 
 t_scene     *scene_parser(char  *file_path);
-int          add_cylinder(t_scene *scene, char **split_line);
+int          add_sphere(t_scene *scene, char **split_line);
 void         free_scene(t_scene *scene);
 
 #endif

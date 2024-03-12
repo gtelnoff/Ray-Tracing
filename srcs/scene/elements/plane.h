@@ -13,7 +13,7 @@ typedef struct s_plane
     // R,G,B plane color in range [0-255].
     int     *color;
 
-    struct t_plane *next;
+    struct s_plane *next;
 }	t_plane;
 
 #endif

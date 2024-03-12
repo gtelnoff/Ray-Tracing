@@ -1,13 +1,13 @@
 #include "../scene.h"
 
-void  free_all_cylinders(t_cylinder *cylinders);
+void  free_all_spheres(t_sphere *spheres);
 
 void  free_scene(t_scene *scene)
 {
   if (scene == NULL)
     return ;
-  if (scene->cylinders != NULL)
-    free_all_cylinders(scene->cylinders);
+  if (scene->spheres != NULL)
+    free_all_spheres(scene->spheres);
   free(scene);
   return ;
 }

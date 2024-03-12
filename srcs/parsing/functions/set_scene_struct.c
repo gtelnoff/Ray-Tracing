@@ -36,10 +36,10 @@ static void  initialize_scene_struct(t_scene *scene)
 {
   scene->ambients_lights = NULL;
   scene->camera = NULL;
-  scene->cylinders = NULL; 
+  scene->spheres = NULL; 
   scene->lights = NULL;
   scene->planes = NULL;
-  scene->spheres = NULL;
+  scene->cylinder = NULL;
 }
 
 static char  *get_first_line(char *file_path, int fd)
@@ -80,9 +80,14 @@ static int  add_object(t_scene *scene, char *line)
   int     return_value;
 
   split_line = ft_split(line, ' ');
+  if (split_line[0] == NULL)
+  {
+    free_2d_array(split_line);
+    return FAILURE;
+  }
 
-  if (strcmp(split_line[0], "cy") == 0)
-    return_value = add_cylinder(scene, split_line);
+  if (strcmp(split_line[0], "sp") == 0)
+    return_value = add_sphere(scene, split_line);
   else
     return_value = FAILURE;
 

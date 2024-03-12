@@ -101,19 +101,19 @@ static int try_open_file(char *file_path)
 
 void  print_all(t_scene *scene)
 {
-  t_cylinder *first_cylinder;
+  t_sphere *first_sphere;
 
-  first_cylinder = scene->cylinders;
-  if (first_cylinder == NULL)
+  first_sphere = scene->spheres;
+  if (first_sphere == NULL)
     return ;
   
-  while (first_cylinder->next != NULL)
+  while (first_sphere->next != NULL)
   {
-   printf("x: %f, y: %f, z:%f\n", first_cylinder->coordinates[0], first_cylinder->coordinates[1], first_cylinder->coordinates[2]);
+   printf("x: %f, y: %f, z:%f\n", first_sphere->coordinates[0], first_sphere->coordinates[1], first_sphere->coordinates[2]);
 
-    first_cylinder = first_cylinder->next;
+    first_sphere = first_sphere->next;
   }
-   printf("x: %f, y: %f, z:%f\n", first_cylinder->coordinates[0], first_cylinder->coordinates[1], first_cylinder->coordinates[2]);
+   printf("x: %f, y: %f, z:%f\n", first_sphere->coordinates[0], first_sphere->coordinates[1], first_sphere->coordinates[2]);
 
   return ;
 }

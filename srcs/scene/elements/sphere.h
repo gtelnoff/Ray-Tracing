@@ -13,7 +13,7 @@ typedef struct s_sphere
     // R,G,B sphere color in range [0-255].
     int     *color;
     
-    struct t_sphere *next;
+    struct s_sphere *next;
 }	t_sphere;
 
 #endif
