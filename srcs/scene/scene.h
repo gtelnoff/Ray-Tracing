@@ -16,7 +16,6 @@
 
 # define ERROR_HEADER "[ERROR] "
 
-# define ERROR_FILE_PATH_SIZE "[ERROR] The file path is too short.\n"
 # define ERROR_FILE_PATH_EXTENSION "[ERROR] Bad file path. Use test.rt for exemple.\n"
 # define ERROR_OPEN_FILE "[ERROR] The program not arrive to open this file. Please check the file name or the permission of it.\n"
 # define ERROR_EMPTY_FILE " is an empty file !\n"
@@ -32,7 +31,7 @@ typedef struct s_scene
     t_plane         *planes;
 }   t_scene;
 
-t_scene     *scene_parser(char  *file_name);
+t_scene     *scene_parser(char  *file_path);
 int          add_cylinder(t_scene *scene, char **split_line);
 void         free_scene(t_scene *scene);
 

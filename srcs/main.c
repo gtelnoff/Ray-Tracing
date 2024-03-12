@@ -3,7 +3,7 @@
 #include "utils/utils.h"
 
 static bool has_arg_count(int argv);
-t_scene *scene_parser(char  *file_name);
+t_scene *scene_parser(char  *file_path);
 void     free_scene(t_scene *scene);
 
 int main(int argc, char** argv)
