@@ -12,7 +12,8 @@ int add_sphere(t_scene *scene, char **split_line)
   t_sphere  *new_sphere;
   t_sphere  *last_sphere;
 
-  if (split_line)
+  if (split_line[0] == NULL)
+    return FAILURE;
 
   new_sphere = create_sphere_struct(split_line);
   if (new_sphere == NULL)
