@@ -5,7 +5,7 @@
 typedef struct s_ambient_light
 {
     // Ambient lighting ratio in range [0.0,1.0].
-	float   ratio;
+	double   ratio;
 
     // R,G,B ambient light color in range [0-255].
     int     *color;

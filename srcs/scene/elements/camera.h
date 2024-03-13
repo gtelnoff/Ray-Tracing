@@ -5,10 +5,10 @@
 typedef struct s_camera
 {
     // x,y,z coordinates of the view point.                   
-	float   *coordinates;
+	double   *coordinates;
 
     // 3d normalized orientation vector. In range [-1,1] for each x,y,z axis.
-    float   *orientation;
+    double   *orientation;
     
     // Horizontal field of view in degrees in range [0,180].
     int     FOV;

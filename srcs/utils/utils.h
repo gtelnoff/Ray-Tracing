@@ -12,6 +12,7 @@ void	free_2d_array(char **array);
 void	print_2d_array(char **array);
 char	*ft_substr(char *s, int start, int len);
 char	*ft_strtrim_free(char *s1, char *set);
-int     is_number(char *str);
+int    is_number(char *str);
+int	   strlen_2d_array(char **array);
 
 #endif

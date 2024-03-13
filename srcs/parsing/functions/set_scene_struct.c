@@ -61,12 +61,14 @@ static int fill_scene_struct(t_scene *scene, char *line, int fd)
 {
   while (line != NULL)
   {
+    line = ft_strtrim_free(line, "\n");
     if (add_object(scene, line) == FAILURE)
     {
       free_scene(scene);
       free_file(line, fd);
       return FAILURE;
     }
+
     free(line);
     line = get_next_line(fd);
   }
