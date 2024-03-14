@@ -5,15 +5,15 @@
 typedef struct s_sphere
 {
     // x,y,z coordinates of the the sphere center.
-    float   *coordinates;
+    double   *coordinates;
 
     // The sphere diameter.
-    float   diameter;
+    double   diameter;
 
     // R,G,B sphere color in range [0-255].
     int     *color;
     
-    struct t_sphere *next;
+    struct s_sphere *next;
 }	t_sphere;
 
 #endif

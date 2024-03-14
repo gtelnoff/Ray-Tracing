@@ -5,15 +5,15 @@
 typedef struct s_light
 {
     // x,y,z coordinates of the light point.
-    float   *coordinates;
+    double   *coordinates;
 
     // The light brightness ratio in range [0.0,1.0].
-    float   brightness;
+    double   brightness;
 
     // R,G,B light color in range [0-255].
     int*    color;
 
-    struct t_light *next;
+    struct s_light *next;
 }	t_light;
 
 #endif

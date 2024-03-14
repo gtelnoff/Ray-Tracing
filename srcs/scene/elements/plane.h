@@ -5,15 +5,15 @@
 typedef struct s_plane
 {
     // x,y,z coordinates of a point in the plane.
-    float   *coordinates;
+    double   *coordinates;
 
     // 3d normalized normal vector. In range [-1,1] for each x,y,z axis.
-    float   *vector;
+    double   *vector;
 
     // R,G,B plane color in range [0-255].
     int     *color;
 
-    struct t_plane *next;
+    struct s_plane *next;
 }	t_plane;
 
 #endif
