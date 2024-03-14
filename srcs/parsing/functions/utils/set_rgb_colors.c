@@ -1,7 +1,7 @@
 #include "../../../global.h"
 
 static bool is_rgb_colors(char  **split_rgb);
-static bool has_point(char *str);
+static bool is_integer(char *str);
 static bool has_range_color(char *str);
 
 int *set_rgb_colors(char *str_rgb)
@@ -45,32 +45,37 @@ static bool is_rgb_colors(char **split_rgb)
   index = 0;
   while (index < 3)
   {
-    printf("%s\n", split_rgb[index]);
     if (!is_number(split_rgb[index]))
+    {
+      printf("HO\n");
       return false;
-    
-    if (has_point(split_rgb[index]) || !has_range_color(split_rgb[index]))
+    }
+      
+    if (!is_integer(split_rgb[index]) || !has_range_color(split_rgb[index]))
+    {
+      printf("%s\n", split_rgb[index]);
       return false;
-     printf("%s\n", split_rgb[index]);
+    }
+
     index++;
   }
 
   return true;
 }
 
-static bool has_point(char *str)
+static bool is_integer(char *str)
 {
   int index;
 
   index = 0;
   while (str[index] != '\0')
   {
-    if (str[index] == '.')
-      return true;
+    if (str[index] == '-' || str[index] == '.')
+      return false;
     index++;
   }
 
-  return false;
+  return true;
 }
 
 static bool has_range_color(char *str)

@@ -1,15 +1,13 @@
 #include "../../../global.h"
 
-# define COORDINATES_MALLOC_SIZE 3
-# define COORDINATES_NUMBER 3
-# define SET_DIAMETER_FAIL -1
+
 
 static t_sphere *create_sphere_struct(char **split_line);
-static double   *set_coordinates(char *str);
+double          *set_coordinates(char *str);
 static void      initialize_sphere(t_sphere *sphere);
-static double    set_diameter(char *diameter);
-void  free_all_spheres(t_sphere *sphere);
-int *set_rgb_colors(char *str_rgb);
+double           set_diameter(char *diameter);
+void             free_all_spheres(t_sphere *sphere);
+int             *set_rgb_colors(char *str_rgb);
 
 int add_sphere(t_scene *scene, char **split_line)
 {
@@ -63,7 +61,7 @@ static t_sphere  *create_sphere_struct(char **split_line)
     free_all_spheres(sphere);
     return NULL;
   }
-
+  
   sphere->color = set_rgb_colors(split_line[3]);
   if (sphere->color == NULL)
   {
@@ -86,54 +84,3 @@ static void initialize_sphere(t_sphere *sphere)
 }
 
 // ajouter le check si il le chiffre est plus grand qu'un double
-
-static double *set_coordinates(char *str)
-{
-  char   **split_coordinates;
-  double  *coordinates;
-  int      index;
-
-  index = 0;
-  split_coordinates = ft_split(str, ',');
-  if (strlen_2d_array(split_coordinates) != COORDINATES_NUMBER)
-  {
-    free_2d_array(split_coordinates);
-    return NULL;
-  }
-
-  coordinates = malloc(sizeof(double) * COORDINATES_MALLOC_SIZE + 1);
-  if (coordinates == NULL)
-    return NULL; 
-
-  while (index < COORDINATES_NUMBER)
-  {
-    if (!is_number(split_coordinates[index]))
-    {
-      // Write_error_not_number(str, split_coordinates[index]); 
-      free(coordinates);
-      free_2d_array(split_coordinates);
-      return NULL;
-    }
-    coordinates[index] = strtod(split_coordinates[index], NULL);
-    index++;
-  }
-
-  free_2d_array(split_coordinates);
-  
-  return coordinates;
-}
-
-static double set_diameter(char *str_diameter)
-{
-  double diameter;
-
-  if (!is_number(str_diameter))
-  {
-    // Write_error_not_number(str, split_coordinates[index]); 
-    return -1;
-  }
-  
-  diameter = strtod(str_diameter, NULL);
-
-  return diameter;
-}

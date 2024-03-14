@@ -9,7 +9,8 @@ void         print_all(t_scene *scene); // delete
  * @brief This function is the main scene parser. 
  *        He call all sub parsing functions.
  * 
- * @param file_path The file name containing scene configurations.
+ * @param file_path The file path containing scene configurations.
+ *                  All scene are in srcs/scene/config.
  * 
  * @return t_scene with scene configurations 
  *         or NULL if we encounter a parser error.
@@ -31,7 +32,6 @@ t_scene *scene_parser(char *file_path)
         return NULL;
 
     print_all(scene);
-
     return scene;
 }
 
@@ -58,7 +58,7 @@ void  print_all(t_scene *scene)
   first_sphere = scene->spheres;
   if (first_sphere == NULL)
     return ;
-  
+  //printf("CAMERA => coordinate: x: %f, y: %f, z:%f\n", scene->camera->coordinates[0], scene->camera->coordinates[1], scene->camera->coordinates[2]);
   while (first_sphere->next != NULL)
   {
    printf("x: %f, y: %f, z:%f\n", first_sphere->coordinates[0], first_sphere->coordinates[1], first_sphere->coordinates[2]);

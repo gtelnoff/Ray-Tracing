@@ -4,6 +4,8 @@ static void   initialize_scene_struct(t_scene *scene);
 static char  *get_first_line(char *file_path, int fd);
 static int    fill_scene_struct(t_scene *scene, char *line, int fd);
 static int    add_object(t_scene *scene, char *line);
+int           add_camera (t_scene *scene, char **split_line);
+int           add_ambient_light (t_scene *scene, char **split_line);
 static void   free_file(char *line, int fd);
 
 # define WHITE_SPACE " \n\t\r\v\f"
@@ -34,7 +36,7 @@ t_scene *set_scene_struct(char *file_path, int fd)
 
 static void  initialize_scene_struct(t_scene *scene)
 {
-  scene->ambients_lights = NULL;
+  scene->ambient_light = NULL;
   scene->camera = NULL;
   scene->spheres = NULL; 
   scene->lights = NULL;
@@ -90,11 +92,15 @@ static int  add_object(t_scene *scene, char *line)
 
   if (strcmp(split_line[0], "sp") == 0)
     return_value = add_sphere(scene, split_line);
+  else if (strcmp(split_line[0], "C") == 0)
+    return_value = add_camera(scene, split_line);
+  else if (strcmp(split_line[0], "A") == 0)
+    return_value = add_ambient_light(scene, split_line);
   else
     return_value = FAILURE;
 
   free_2d_array(split_line);
-  
+
   return return_value;
 }
 
